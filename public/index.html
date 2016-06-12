@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>会員制無名チャット</title>
+    <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+    <script src="scripts/init.js"></script>
+    <script src="scripts/jquery-3.0.0.min.js"></script>
+    <script src="scripts/auth.js"></script>
+    <style media="screen">
+      *{
+        padding: 0;
+        margin: 0;
+      }
+      h1{
+        margin: 8px 0;
+      }
+      body {
+        font-family: Roboto, Arial, sans-serif;
+        background: #ECEFF1;
+        color: rgba(0,0,0,0.87);
+      }
+
+      form{
+        margin: 8px 0;
+      }
+
+      a {
+        color: rgb(3,155,229);
+      }
+
+      #login-with-email ul {
+        list-style: none;
+        margin: 16px 0 0;
+        padding: 0;
+        text-align: center;
+      }
+
+      #login-with-email li a {
+        display: inline-block;
+        padding: 8px;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-weight: 500;
+        background: rgb(3,155,229);
+        color: white;
+        border: 1px solid rgb(3,155,229);
+        border-radius: 3px;
+        font-size: 14px;
+        box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+      }
+
+      #login-form {
+        display:none;
+        max-width: 400px;
+        margin: 40px auto;
+        box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2),0 1px 1px 0 rgba(0,0,0,0.14),0 2px 1px -1px rgba(0,0,0,0.12);
+        background: rgb(3, 155, 229);
+        border-radius: 4px;
+      }
+      label > p {
+        line-height: 1.5em;
+      }
+      #login-with-email {
+        margin: 0 0 0;
+        padding: 16px 24px 16px;
+        box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2);
+        border-radius: 4px 4px 0 0 / 4px 4px 0 0;
+        z-index: 200;
+        background: white;
+      }
+      .small-message {
+        font-size: 10px;
+      }
+      #login-with-google {
+        display:block;
+        text-align:center;
+        font-size: 12px;
+        line-height: 2em;
+        color: white;
+        text-decoration:none;
+      }
+      #login-with-google:hover{
+        color: orange;
+      }
+      #signin{
+        display:block;
+        margin: 8px 0;
+      }
+
+      #content{
+        max-width: 800px;
+        margin: 40px auto;
+        box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2),0 1px 1px 0 rgba(0,0,0,0.14),0 2px 1px -1px rgba(0,0,0,0.12);
+        background: white;
+        border-radius: 4px;
+      }
+
+      #messages{
+        list-style:none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="login-form">
+      <div id="login-with-email">
+      <h1>ログイン</h1>
+      <form name="login">
+      <label><p>メールアドレス</p><input type="email" id="email"></label>
+      <label><p>パスワード</p><input type="password" id="password"></label>
+      <button type="submit" id="signin">サインイン</button>
+      </form>
+      <p class="small-message"><a href="#" id="create-account">アカウントを作成</a> / パスワードを忘れた</p>
+      </div>
+      <a href="#" id="login-with-google">Googleでログインする</a>
+    </div>
+    <div id="content">
+      <form name="speak">
+        <input type="text" id="remark">
+        <button type="submit" id="submit">発言</button>
+      </form>
+      <button id="logout">ログアウト</button>
+      <ul id="messages"></ul>
+    </div>
+  </body>
+</html>
+
+
